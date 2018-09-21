@@ -8,18 +8,32 @@ final class Quality
 
     private $value;
 
-    public function __construct(int $value) {
+    public function __construct(int $value)
+    {
         $this->value = $value;
     }
 
-    public function increase()
+    public function increase(int $value=1)
     {
-        ++$this->value;
+        $this->value += $value;
+
+        if ($this->value > self::$MAXIMUM) {
+            $this->value = self::$MAXIMUM;
+        }
     }
 
-    public function decrease()
+    public function decrease(int $value=1)
     {
-        --$this->value;
+        $this->value -= $value;
+
+        if ($this->value < self::$MINIMUM) {
+            $this->value = self::$MINIMUM;
+        }
+    }
+
+    public function none()
+    {
+        $this->value = 0;
     }
 
     public function value(): int
