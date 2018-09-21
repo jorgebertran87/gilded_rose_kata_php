@@ -1,5 +1,5 @@
 <?php
-namespace App\Items;
+namespace App\Items\Types;
 
 use App\Items\ValueObjects\Quality;
 use App\Items\ValueObjects\SellIn;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Items;
+namespace App\Items\Types;
 
 abstract class TickableItem
 {

@@ -1,8 +1,7 @@
 <?php
-namespace App\Items;
+namespace App\Items\Types;
 
 use App\Items\ValueObjects\LegendaryQuality;
-use App\Items\ValueObjects\Quality;
 
 abstract class LegendaryItem extends TickableItem
 {
