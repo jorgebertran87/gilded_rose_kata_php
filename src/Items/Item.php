@@ -25,6 +25,12 @@ abstract class Item
         return $this->sellIn->value();
     }
 
-    abstract public function tick();
+    public function tick()
+    {
+        $this->sellIn->decrease();
+        $this->updateQuality();
+    }
+
+    abstract protected function updateQuality();
 
 }

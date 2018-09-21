@@ -1,13 +1,13 @@
 <?php
 namespace App\Items;
 
+use App\Items\ValueObjects\Quality;
+
 final class NormalItem extends Item
 {
-    public function tick()
+    protected function updateQuality()
     {
-        $this->sellIn->decrease();
-
-        if ($this->quality() === 0) {
+        if ($this->quality() === Quality::minimum()) {
             return;
         }
 
