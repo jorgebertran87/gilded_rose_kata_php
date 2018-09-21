@@ -3,7 +3,7 @@ namespace App\Items;
 
 use App\Items\ValueObjects\Quality;
 
-final class NormalItem extends Item
+final class NormalItem extends SellableItem
 {
     protected function updateQuality()
     {

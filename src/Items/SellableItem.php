@@ -4,7 +4,7 @@ namespace App\Items;
 use App\Items\ValueObjects\Quality;
 use App\Items\ValueObjects\SellIn;
 
-abstract class Item
+abstract class SellableItem extends TickableItem
 {
     protected $quality;
     protected $sellIn;
@@ -31,6 +31,5 @@ abstract class Item
         $this->updateQuality();
     }
 
-    abstract protected function updateQuality();
-
+    protected abstract function updateQuality();
 }
