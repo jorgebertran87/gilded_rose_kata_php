@@ -14,7 +14,7 @@ final class NormalItem extends SellableItem
 
         $this->quality->decrease();
 
-        if ($this->sellIn() < 0) {
+        if ($this->sellIn() <= 0) {
             $this->quality->decrease();
         }
     }

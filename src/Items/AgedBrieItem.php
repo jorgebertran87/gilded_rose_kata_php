@@ -14,7 +14,7 @@ final class AgedBrieItem extends SellableItem
 
         $this->quality->increase();
 
-        if ($this->sellIn() < 0 && $this->quality() < Quality::maximum()) {
+        if ($this->sellIn() <= 0 && $this->quality() < Quality::maximum()) {
             $this->quality->increase();
         }
     }

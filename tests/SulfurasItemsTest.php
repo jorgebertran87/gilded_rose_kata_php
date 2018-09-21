@@ -4,6 +4,7 @@ namespace Tests;
 use App\GildedRose;
 use App\Items\NormalItem;
 use App\Items\SulfurasItem;
+use App\Items\Types\SellableItem;
 use App\Items\ValueObjects\LegendaryQuality;
 use App\Items\ValueObjects\Quality;
 use App\Items\ValueObjects\SellIn;
@@ -12,12 +13,25 @@ use PHPUnit\Framework\TestCase;
 
 final class SulfurasItemsTest extends TestCase
 {
-    public function testItUpdatesSulfurasItemsBeforeSellDate()
+    /** @var SulfurasItem */
+    private $item;
+
+    public function setUp()
     {
-        $item = new SulfurasItem(new LegendaryQuality());
+        parent::setUp();
+        $this->item = new SulfurasItem(new LegendaryQuality());
+    }
 
-        $item->tick();
+    public function testItReturnsLegendaryQuality()
+    {
+        $prevQuality = $this->item->quality();
+        Assert::assertEquals(80, $prevQuality);
+        $this->item->tick();
+        Assert::assertEquals($this->item->quality(), $prevQuality);
+    }
 
-        Assert::assertEquals($item->quality(), 80);
+    public function testItReturnsItemNotSellable()
+    {
+        Assert::assertNotInstanceOf(SellableItem::class, $this->item);
     }
 }
