@@ -26,7 +26,7 @@ final class SulfurasItemsTest extends TestCase
     {
         $prevQuality = $this->item->quality();
         Assert::assertEquals(80, $prevQuality);
-        $this->item->tick();
+        GildedRose::tickOf($this->item);
         Assert::assertEquals($prevQuality, $this->item->quality());
     }
 

@@ -14,8 +14,7 @@ final class ConjuredItemsTest extends TestCase
     public function testItUpdatesConjuredItemsBeforeTheSellDate()
     {
         $item = new ConjuredItem(new Quality(10), new SellIn(10));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 8);
         Assert::assertEquals($item->sellIn(), 9);
@@ -24,8 +23,7 @@ final class ConjuredItemsTest extends TestCase
     public function testItUpdatesConjuredItemsBeforeTheSellDateWhenQualityIsZero()
     {
         $item = new ConjuredItem(new Quality(0), new SellIn(10));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 0);
         Assert::assertEquals($item->sellIn(), 9);
@@ -34,8 +32,7 @@ final class ConjuredItemsTest extends TestCase
     public function testItUpdatesConjuredItemOnSellDate()
     {
         $item = new ConjuredItem(new Quality(10), new SellIn(0));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 6);
         Assert::assertEquals($item->sellIn(), -1);
@@ -44,8 +41,7 @@ final class ConjuredItemsTest extends TestCase
     public function testItUpdatesConjuredItemOnSellDateWhenQualityIsZero()
     {
         $item = new ConjuredItem(new Quality(0), new SellIn(0));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 0);
         Assert::assertEquals($item->sellIn(), -1);
@@ -54,8 +50,7 @@ final class ConjuredItemsTest extends TestCase
     public function testItUpdatesConjuredItemAfterSellDate()
     {
         $item = new ConjuredItem(new Quality(10), new SellIn(-5));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 6);
         Assert::assertEquals($item->sellIn(), -6);
@@ -64,8 +59,7 @@ final class ConjuredItemsTest extends TestCase
     public function testItUpdatesConjuredItemAfterSellDateWhenQualityIsZero()
     {
         $item = new ConjuredItem(new Quality(0), new SellIn(-4));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 0);
         Assert::assertEquals($item->sellIn(), -5);

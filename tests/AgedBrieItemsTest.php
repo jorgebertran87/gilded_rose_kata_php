@@ -14,8 +14,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsBeforeSellDate()
     {
         $item = new AgedBrieItem(new Quality(10), new SellIn(5));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 11);
         Assert::assertEquals($item->sellIn(), 4);
@@ -24,8 +23,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsBeforeSellDateWithMaximumQuality()
     {
         $item = new AgedBrieItem(new Quality(50), new SellIn(5));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 50);
         Assert::assertEquals($item->sellIn(), 4);
@@ -34,8 +32,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsOnSellDate()
     {
         $item = new AgedBrieItem(new Quality(8), new SellIn(0));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 10);
         Assert::assertEquals($item->sellIn(), -1);
@@ -44,8 +41,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsOnSellDateNearMaximumQuality()
     {
         $item = new AgedBrieItem(new Quality(49), new SellIn(0));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 50);
         Assert::assertEquals($item->sellIn(), -1);
@@ -54,8 +50,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsOnSellDateWithMaximumQuality()
     {
         $item = new AgedBrieItem(new Quality(50), new SellIn(0));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 50);
         Assert::assertEquals($item->sellIn(), -1);
@@ -64,8 +59,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsAfterSellDate()
     {
         $item = new AgedBrieItem(new Quality(8), new SellIn(-4));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 10);
         Assert::assertEquals($item->sellIn(), -5);
@@ -74,8 +68,7 @@ final class AgedBrieItemsTest extends TestCase
     public function testItUpdatesBrieItemsAfterSellDateWithMaximumQuality()
     {
         $item = new AgedBrieItem(new Quality(50), new SellIn(-4));
-
-        $item->tick();
+        GildedRose::tickOf($item);
 
         Assert::assertEquals($item->quality(), 50);
         Assert::assertEquals($item->sellIn(), -5);
