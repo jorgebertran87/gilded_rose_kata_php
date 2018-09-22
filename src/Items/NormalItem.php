@@ -3,7 +3,7 @@ namespace App\Items;
 
 use App\Items\Types\SellableItem;
 
-final class NormalItem extends SellableItem
+class NormalItem extends SellableItem
 {
     protected function updateQuality()
     {
