@@ -1,7 +1,7 @@
 <?php
 namespace App\Items\ValueObjects;
 
-final class Quality
+final class Quality implements IntegerValuableInterface
 {
     private static $MAXIMUM = 50;
     private static $MINIMUM = 0;

@@ -1,7 +1,7 @@
 <?php
 namespace App\Items\ValueObjects;
 
-final class LegendaryQuality
+final class LegendaryQuality implements IntegerValuableInterface
 {
     private $value = 80;
 

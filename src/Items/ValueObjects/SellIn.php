@@ -1,7 +1,7 @@
 <?php
 namespace App\Items\ValueObjects;
 
-final class SellIn
+final class SellIn implements IntegerValuableInterface
 {
     private $value;
 
