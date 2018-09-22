@@ -8,10 +8,6 @@ final class BackstagePassesItem extends SellableItem
 {
     protected function updateQuality()
     {
-        if ($this->quality() === Quality::maximum()) {
-            return;
-        }
-
         if ($this->itIsFarFromSellDate()) {
             $this->quality->increase();
         }
