@@ -1,17 +1,13 @@
 <?php
+
 namespace Tests;
 
-use App\GildedRose;
-use App\Items\NormalItem;
 use App\Items\SulfurasItem;
 use App\Items\Types\SellableItem;
 use App\Items\ValueObjects\LegendaryQuality;
-use App\Items\ValueObjects\Quality;
-use App\Items\ValueObjects\SellIn;
 use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\TestCase;
 
-final class SulfurasItemsTest extends TestCase
+final class SulfurasItemsTest extends GildedRoseTestCase
 {
     /** @var SulfurasItem */
     private $item;
@@ -26,7 +22,7 @@ final class SulfurasItemsTest extends TestCase
     {
         $prevQuality = $this->item->quality();
         Assert::assertEquals(80, $prevQuality);
-        GildedRose::tickOf($this->item);
+        $this->tick($this->item);
         Assert::assertEquals($prevQuality, $this->item->quality());
     }
 
