@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Items\ValueObjects;
 
 final class LegendaryQuality implements IntegerValuableInterface

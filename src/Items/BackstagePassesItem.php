@@ -1,8 +1,8 @@
 <?php
+
 namespace App\Items;
 
 use App\Items\Types\SellableItem;
-use App\Items\ValueObjects\Quality;
 
 final class BackstagePassesItem extends SellableItem
 {

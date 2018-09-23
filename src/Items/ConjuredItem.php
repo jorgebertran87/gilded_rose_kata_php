@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Items;
 
 use App\Items\Types\SellableItem;
