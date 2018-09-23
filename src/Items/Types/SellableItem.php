@@ -4,7 +4,7 @@ namespace App\Items\Types;
 use App\Items\ValueObjects\Quality;
 use App\Items\ValueObjects\SellIn;
 
-abstract class SellableItem extends TickableItem
+abstract class SellableItem extends Item
 {
     protected $sellIn;
 

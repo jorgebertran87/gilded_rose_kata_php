@@ -4,7 +4,7 @@ namespace App\Items\Types;
 use App\Items\ValueObjects\LegendaryQuality;
 use App\Items\ValueObjects\Quality;
 
-abstract class TickableItem
+abstract class Item
 {
     /** @var  Quality|LegendaryQuality */
     protected $quality;

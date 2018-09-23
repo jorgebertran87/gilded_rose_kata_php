@@ -3,7 +3,7 @@ namespace App\Items\Types;
 
 use App\Items\ValueObjects\LegendaryQuality;
 
-abstract class LegendaryItem extends TickableItem
+abstract class LegendaryItem extends Item
 {
     public function __construct(LegendaryQuality $quality)
     {
