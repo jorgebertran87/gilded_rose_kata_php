@@ -5,7 +5,7 @@ use App\Items\Types\SellableItem;
 
 final class NormalItem extends SellableItem
 {
-    public function updateQuality()
+    protected function updateQuality()
     {
         $this->quality->decrease();
 
