@@ -9,7 +9,7 @@ final class AgedBrieItem extends SellableItem
     {
         $this->quality->increase();
 
-        if ($this->sellIn() <= 0) {
+        if ($this->sellIn() < 0) {
             $this->quality->increase();
         }
     }

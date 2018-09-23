@@ -21,8 +21,8 @@ abstract class SellableItem extends Item
 
     public function tick()
     {
-        $this->updateQuality();
         $this->sellIn->decrease();
+        $this->updateQuality();
     }
 
     protected abstract function updateQuality();

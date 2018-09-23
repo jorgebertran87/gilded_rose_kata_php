@@ -17,28 +17,28 @@ final class BackstagePassesItem extends SellableItem
         elseif($this->itIsVeryCloseToSellDate()) {
             $this->quality->increase(3);
         }
-        elseif($this->itIsOnOrAfterSellDate()) {
+        elseif($this->itIsAfterSellDate()) {
             $this->quality->none();
         }
     }
 
     private function itIsFarFromSellDate(): bool
     {
-        return $this->sellIn() > 10;
+        return $this->sellIn() >= 10;
     }
 
     private function itIsCloseToSellDate(): bool
     {
-        return $this->sellIn() <= 10 and $this->sellIn() > 5;
+        return $this->sellIn() < 10 and $this->sellIn() >= 5;
     }
 
     private function itIsVeryCloseToSellDate(): bool
     {
-        return $this->sellIn() <= 5 and $this->sellIn() > 0;
+        return $this->sellIn() < 5 and $this->sellIn() >= 0;
     }
 
-    private function itIsOnOrAfterSellDate(): bool
+    private function itIsAfterSellDate(): bool
     {
-        return $this->sellIn() <= 0;
+        return $this->sellIn() < 0;
     }
 }
