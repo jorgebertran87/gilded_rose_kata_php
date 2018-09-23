@@ -1,8 +1,17 @@
 <?php
 namespace App\Items;
 
-final class ConjuredItem extends NormalItem
+use App\Items\Types\SellableItem;
+
+final class ConjuredItem extends SellableItem
 {
+    private $normalItem;
+
+    public function __construct(NormalItem $normalItem)
+    {
+        $this->normalItem = $normalItem;
+        parent::__construct($normalItem->quality, $normalItem->sellIn);
+    }
     protected function updateQuality()
     {
         $this->degradeQualityTwiceAsNormal();
@@ -10,7 +19,7 @@ final class ConjuredItem extends NormalItem
 
     private function degradeQualityTwiceAsNormal()
     {
-        parent::updateQuality();
-        parent::updateQuality();
+        $this->normalItem->updateQuality();
+        $this->normalItem->updateQuality();
     }
 }

@@ -3,9 +3,9 @@ namespace App\Items;
 
 use App\Items\Types\SellableItem;
 
-class NormalItem extends SellableItem
+final class NormalItem extends SellableItem
 {
-    protected function updateQuality()
+    public function updateQuality()
     {
         $this->quality->decrease();
 
